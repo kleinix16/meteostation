@@ -4,7 +4,7 @@
 ######   Description: Meranie teploty v izbe a na radiatore, zapis do DB
 ######   Author: Tomas Klein
 ######   Created: 2020/04/11 21:09:50
-######   Last modified: 2020/04/12 12:56:29
+######   Last modified: 2020/04/12 13:14:50
 ###############################################################################################################
 
 import mysql.connector
@@ -140,7 +140,7 @@ pres = ((data[0] * 65536) + (data[1] * 256) + data[2]) / 128
 X1 = (temp - AC6) * AC5 / 32768.0
 X2 = (MC * 2048.0) / (X1 + MD)
 B5 = X1 + X2
-sensor_radiator_temp = ((B5 + 8.0) / 16.0) / 10.0
+sensor_radiator_temp = round(((B5 + 8.0) / 16.0) / 10.0, 2)
 
 # Calibration for Pressure
 B6 = B5 - 4000
@@ -164,7 +164,7 @@ X2 = ((-7357) * pressure) / 65536.0
 sensor_radiator_pressure = round((pressure + (X1 + X2 + 3791) / 16.0) / 100, 2)
 
 # Calculate Altitude
-sensor_radiator_altitude = 44330 * (1 - ((sensor_radiator_pressure / 1013.25) ** 0.1903))
+sensor_radiator_altitude = round(44330 * (1 - ((sensor_radiator_pressure / 1013.25) ** 0.1903)), 2)
 
 logging.info("sensor_radiator - Altitude: " + str(sensor_radiator_altitude))
 logging.info("sensor_radiator - Pressure: " + str(sensor_radiator_pressure))
