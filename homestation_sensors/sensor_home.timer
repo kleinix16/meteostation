@@ -1,0 +1,7 @@
+[Unit]
+Description=15min timer
+
+[Timer]
+OnBootSec=1min
+OnCalendar=*:*:0,15,30,45
+Unit=sensor_home.service
