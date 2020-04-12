@@ -4,7 +4,7 @@
 ######   Description: Meranie teploty v izbe a na radiatore, zapis do DB
 ######   Author: Tomas Klein
 ######   Created: 2020/04/11 21:09:50
-######   Last modified: 2020/04/12 13:14:50
+######   Last modified: 2020/04/12 13:25:25
 ###############################################################################################################
 
 import mysql.connector
@@ -229,4 +229,4 @@ if(args.measure != True):
 
 
 logging.info("-------------- END ---------------")
-exit(1)
+exit(0)
