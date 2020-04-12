@@ -6,4 +6,4 @@ StartLimitIntervalSec=60
 [Service]
 Type=simple
 User=pi
-ExecStart=/usr/bin/python3.7   /home/pi/meteostation/Teplomer_domaci/senzor_home.py
+ExecStart=/usr/bin/python3.7   /home/pi/meteostation/homestation_sensors/sensor_home.py
